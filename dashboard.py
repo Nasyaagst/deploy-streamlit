@@ -12,7 +12,7 @@ st.title('Simple Dashboard of AQI of Shunyi Area')
 st.write("This dashboard contains data ranging from March 1st 2013 until February 28th 2017 24-hours non-stop about Air Quality in Shunyi.")
 
 # Add Name Widget
-name = st.text_input(label='Your Name', value='')
+name = st.text_input(label='Your Name', value='', placeholder='Please type your name here')
 st.write('Hello,', name, "!")
 
 # Calculate maximum values for each pollutant
