@@ -32,7 +32,7 @@ st.subheader("What day was Shunyi's AQI at its peak?")
 col1, col2 = st.columns(2)
 with col1:
     st.markdown("**Date**")
-    st.metric("f"Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
+    st.metric("f" Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
     
 with col2:
     st.metric("AQI", value=day_max_aqi['AQI'])
