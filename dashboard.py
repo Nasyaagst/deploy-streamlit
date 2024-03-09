@@ -72,8 +72,8 @@ st.write(f"- AQI: {day_max_aqi['AQI']}")
 
 # Bar chart for showing the mean concentrations of pollutants
 st.subheader("Mean Concentrations of Pollutants")
-plt.figure(figsize=(10, 6))
-pollutant_mean.plot(kind='bar', color='red')
+plt, ax = plt.subplots(figsize=(10, 6))
+pollutant_mean.plot(kind='bar', color='red', ax=ax) #ax=ax to plotting 
 plt.title("Mean Concentrations of Pollutants", loc="center", fontsize=15)
 plt.xlabel('Pollutant')
 plt.ylabel('Concentration (µg/m³ or ppm)')
@@ -87,11 +87,11 @@ pollutants = ['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']
 selected_columns = weather_variables + pollutants
 correlation_matrix = df[selected_columns].corr()
 
-plt.figure(figsize=(10, 8))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", vmin=-1, vmax=1)
+fig, ax = plt.subplots(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", vmin=-1, vmax=1, ax=ax)
 plt.title('Correlation between Weather Variables and Pollutant Concentrations')
 plt.xlabel('Pollutants')
 plt.ylabel('Weather Variables')
 plt.xticks(rotation=45)
 plt.yticks(rotation=0)
-st.pyplot()
+st.pyplot(fig) #Including the fig when calling st.pyplot(
