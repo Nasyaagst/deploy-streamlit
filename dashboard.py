@@ -12,16 +12,31 @@ st.title('Simple Dashboard of AQI of Shunyi Area')
 
 # Slider widget for selecting time range
 st.sidebar.subheader("Select Time Range")
-min_date = pd.to_datetime(df['year']).min().date()
-max_date = pd.to_datetime(df['year']).max().date()
-start_date, end_date = st.sidebar.slider("Select Dates", min_value=min_date, max_value=max_date, value=(min_date, max_date))
+start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2013-03-01'))
+end_date = st.sidebar.date_input("End Date", pd.to_datetime('2017-02-28'))
 
 # Filter data based on selected time range
-filtered_df = df[(pd.to_datetime(df['year']).dt.date >= start_date) & (pd.to_datetime(df['year']).dt.date <= end_date)]
+filtered_df = df[(pd.to_datetime(df['year']) >= start_date) & (pd.to_datetime(df['year']) <= end_date)]
 
 # Display filtered data
 st.subheader("Filtered Data")
 st.write(filtered_df)
+
+# Calculate maximum and minimum values for each pollutant within the selected time range
+max_values = filtered_df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].max()
+min_values = filtered_df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].min()
+
+# Calculate maximum AQI within the selected time range
+max_aqi = filtered_df['AQI'].max()
+
+# Display maximum and minimum pollutant values and maximum AQI
+st.subheader("Maximum Pollutant Values and Maximum AQI")
+st.write("Maximum Pollutant Values:")
+st.write(max_values)
+st.write("Minimum Pollutant Values:")
+st.write(min_values)
+st.write("Maximum AQI:")
+st.write(max_aqi)
 
 # Calculate maximum and minimum values for each pollutant within the selected time range
 max_values = filtered_df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].max()
