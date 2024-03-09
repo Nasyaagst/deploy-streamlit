@@ -10,19 +10,6 @@ df = pd.read_csv("https://raw.githubusercontent.com/Nasyaagst/Submission/main/al
 # Print title
 st.title('Simple Dashboard of AQI of Shunyi Area')
 
-# Slider widget for selecting time range
-st.sidebar.subheader("Select Time Range")
-min_date = pd.to_datetime(df['date']).min().date()
-max_date = pd.to_datetime(df['date']).max().date()
-start_date, end_date = st.sidebar.slider("Select Dates", min_value=min_date, max_value=max_date, value=(min_date, max_date))
-
-# Filter data based on selected time range
-filtered_df = df[(pd.to_datetime(df['date']).dt.date >= start_date) & (pd.to_datetime(df['date']).dt.date <= end_date)]
-
-# Display filtered data
-st.subheader("Filtered Data")
-st.write(filtered_df)
-
 # Calculate maximum values for each pollutant
 max_pm25 = df[df['PM2.5'] == df['PM2.5'].max()]
 max_pm10 = df[df['PM10'] == df['PM10'].max()]
