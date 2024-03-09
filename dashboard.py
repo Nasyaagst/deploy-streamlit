@@ -31,9 +31,9 @@ day_max_aqi = df.loc[df['AQI'].idxmax()]
 st.subheader("What day was Shunyi's AQI at its peak?")
 col1, col2 = st.columns(2)
 with col1:
-    st.metric(<b>"Date"</b>, f"Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
+    st.markdown("**Date**")
+    st.metric("f"Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
     
-st.subheader("Highest AQI")
 with col2:
     st.metric("AQI", value=day_max_aqi['AQI'])
 
