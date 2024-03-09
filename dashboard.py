@@ -25,6 +25,28 @@ max_o3 = df[df['O3'] == df['O3'].max()]
 
 # Print date and time when each pollutant reaches its highest value
 st.subheader("Date and time when each pollutant reaches its highest value:")
+
+col1 = st.columns(2)
+
+def calculate_aqi(pm25, pm10, so2, no2, co, o3):
+    aqi = max(pm25, pm10, so2, no2, co, o3)
+    return aqi
+
+# Calculate AQI for each day
+df['AQI'] = df.apply(lambda row: calculate_aqi(row['PM2.5'], row['PM10'], row['SO2'], row['NO2'], row['CO'], row['O3']), axis=1)
+
+# Find the day with the highest AQI
+day_max_aqi = df.loc[df['AQI'].idxmax()]
+
+# Print the day with the highest AQI
+st.subheader("The day with the highest AQI in Shunyi:")
+st.write(f"- Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
+st.subheader("Highest AQI")
+col1, col2 = st.columns(2)
+with col1:
+    st.metric("AQI", value=day_max_aqi['AQI'])
+
+
 st.write("PM2.5:", max_pm25[['year', 'month', 'day', 'hour']])
 st.write("PM10:", max_pm10[['year', 'month', 'day', 'hour']])
 st.write("SO2:", max_so2[['year', 'month', 'day', 'hour']])
@@ -58,22 +80,6 @@ st.subheader("Mean concentrations of pollutants:")
 st.write(pollutant_mean)
 st.subheader("Median concentrations of pollutants:")
 st.write(pollutant_median)
-
-# Define a function to calculate AQI
-def calculate_aqi(pm25, pm10, so2, no2, co, o3):
-    aqi = max(pm25, pm10, so2, no2, co, o3)
-    return aqi
-
-# Calculate AQI for each day
-df['AQI'] = df.apply(lambda row: calculate_aqi(row['PM2.5'], row['PM10'], row['SO2'], row['NO2'], row['CO'], row['O3']), axis=1)
-
-# Find the day with the highest AQI
-day_max_aqi = df.loc[df['AQI'].idxmax()]
-
-# Print the day with the highest AQI
-st.subheader("The day with the highest AQI in Shunyi:")
-st.write(f"- Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
-st.write(f"- AQI: {day_max_aqi['AQI']}")
 
 # Bar chart for showing the mean concentrations of pollutants
 st.subheader("Mean Concentrations of Pollutants")
