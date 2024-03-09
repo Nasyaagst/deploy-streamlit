@@ -13,7 +13,7 @@ st.write("This dashboard contains data ranging from March 1st 2013 until Februar
 
 # Add Name Widget
 name = st.text_input(label='Your Name', value='', placeholder='Please type your name here')
-st.write('Hello,', name, "!")
+st.write('Hello,', name,"!")
 
 # Calculate maximum values for each pollutant
 max_pm25 = df[df['PM2.5'] == df['PM2.5'].max()]
