@@ -28,11 +28,13 @@ df['AQI'] = df.apply(lambda row: calculate_aqi(row['PM2.5'], row['PM10'], row['S
 day_max_aqi = df.loc[df['AQI'].idxmax()]
 
 # Print the day with the highest AQI
-st.subheader("The day with the highest AQI in Shunyi:")
-st.write(f"- Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
-st.subheader("Highest AQI")
+st.subheader("What day was Shunyi's AQI at its peak?")
 col1, col2 = st.columns(2)
 with col1:
+    st.metric("Date", f"- Date: {day_max_aqi['year']}/{day_max_aqi['month']}/{day_max_aqi['day']}")
+    
+st.subheader("Highest AQI")
+with col2:
     st.metric("AQI", value=day_max_aqi['AQI'])
 
 # Calculate maximum values for each pollutant
