@@ -87,11 +87,11 @@ pollutants = ['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']
 selected_columns = weather_variables + pollutants
 correlation_matrix = df[selected_columns].corr()
 
-fig.figure(figsize=(10, 8))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", vmin=-1, vmax=1)
+fig, ax = plt.subplots(figsize=(10, 8))  # Create a new figure with the desired size
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", vmin=-1, vmax=1, ax=ax)
 plt.title('Correlation between Weather Variables and Pollutant Concentrations')
 plt.xlabel('Pollutants')
 plt.ylabel('Weather Variables')
 plt.xticks(rotation=45)
 plt.yticks(rotation=0)
-st.pyplot(plt.gcf())
+st.pyplot(fig)  # Display the figure using st.pyplot()
