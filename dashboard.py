@@ -9,7 +9,7 @@ df = pd.read_csv("https://raw.githubusercontent.com/Nasyaagst/Submission/main/al
 
 # Print title
 st.title('Simple Dashboard of AQI of Shunyi Area')
-st.write("This dashboard contains data ranging from March 1st 2013 until February 28th 2017 24-hours non-stop about Air Quality in Shunyi."
+st.write("This dashboard contains data ranging from March 1st 2013 until February 28th 2017 24-hours non-stop about Air Quality in Shunyi.")
 # Calculate maximum values for each pollutant
 max_pm25 = df[df['PM2.5'] == df['PM2.5'].max()]
 max_pm10 = df[df['PM10'] == df['PM10'].max()]
