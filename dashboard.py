@@ -32,14 +32,6 @@ min_values = filtered_df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].min()
 # Calculate maximum AQI within the selected time range
 max_aqi = filtered_df['AQI'].max()
 
-
-# Calculate maximum and minimum values for each pollutant within the selected time range
-max_values = filtered_df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].max()
-min_values = filtered_df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].min()
-
-# Calculate maximum AQI within the selected time range
-max_aqi = filtered_df['AQI'].max()
-
 # Display maximum and minimum pollutant values and maximum AQI
 st.subheader("Maximum Pollutant Values and Maximum AQI")
 st.write("Maximum Pollutant Values:")
