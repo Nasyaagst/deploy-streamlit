@@ -94,4 +94,4 @@ plt.xlabel('Pollutants')
 plt.ylabel('Weather Variables')
 plt.xticks(rotation=45)
 plt.yticks(rotation=0)
-st.pyplot(fig) #Including the fig when calling st.pyplot(
+st.pyplot(fig) #Including the fig when calling st.pyplot
