@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,15 +7,29 @@ import streamlit as st
 
 df = pd.read_csv("https://raw.githubusercontent.com/Nasyaagst/Submission/main/all_data.csv")
 
+# Print title
+st.title('Simple Dashboard of AQI of Shunyi Area')
+
+# Slider widget for selecting time range
+st.sidebar.subheader("Select Time Range")
+min_date = pd.to_datetime(df['date']).min().date()
+max_date = pd.to_datetime(df['date']).max().date()
+start_date, end_date = st.sidebar.slider("Select Dates", min_value=min_date, max_value=max_date, value=(min_date, max_date))
+
+# Filter data based on selected time range
+filtered_df = df[(pd.to_datetime(df['date']).dt.date >= start_date) & (pd.to_datetime(df['date']).dt.date <= end_date)]
+
+# Display filtered data
+st.subheader("Filtered Data")
+st.write(filtered_df)
+
+# Calculate maximum values for each pollutant
 max_pm25 = df[df['PM2.5'] == df['PM2.5'].max()]
 max_pm10 = df[df['PM10'] == df['PM10'].max()]
 max_so2 = df[df['SO2'] == df['SO2'].max()]
 max_no2 = df[df['NO2'] == df['NO2'].max()]
 max_co = df[df['CO'] == df['CO'].max()]
 max_o3 = df[df['O3'] == df['O3'].max()]
-
-# Print title
-st.title('Simple Dashboard of AQI of Shunyi Area')
 
 # Print date and time when each pollutant reaches its highest value
 st.subheader("Date and time when each pollutant reaches its highest value:")
