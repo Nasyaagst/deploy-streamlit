@@ -15,17 +15,6 @@ st.write("This dashboard contains data ranging from March 1st 2013 until Februar
 name = st.text_input(label='Your Name', value='', placeholder='Please type your name here')
 st.write('Hello,', name)
 
-# Calculate maximum values for each pollutant
-max_pm25 = df[df['PM2.5'] == df['PM2.5'].max()]
-max_pm10 = df[df['PM10'] == df['PM10'].max()]
-max_so2 = df[df['SO2'] == df['SO2'].max()]
-max_no2 = df[df['NO2'] == df['NO2'].max()]
-max_co = df[df['CO'] == df['CO'].max()]
-max_o3 = df[df['O3'] == df['O3'].max()]
-
-# Print date and time when each pollutant reaches its highest value
-st.subheader("Date and time when each pollutant reaches its highest value:")
-
 col1 = st.columns(2)
 
 def calculate_aqi(pm25, pm10, so2, no2, co, o3):
@@ -46,6 +35,16 @@ col1, col2 = st.columns(2)
 with col1:
     st.metric("AQI", value=day_max_aqi['AQI'])
 
+# Calculate maximum values for each pollutant
+max_pm25 = df[df['PM2.5'] == df['PM2.5'].max()]
+max_pm10 = df[df['PM10'] == df['PM10'].max()]
+max_so2 = df[df['SO2'] == df['SO2'].max()]
+max_no2 = df[df['NO2'] == df['NO2'].max()]
+max_co = df[df['CO'] == df['CO'].max()]
+max_o3 = df[df['O3'] == df['O3'].max()]
+
+# Print date and time when each pollutant reaches its highest value
+st.subheader("Date and time when each pollutant reaches its highest value:")
 
 st.write("PM2.5:", max_pm25[['year', 'month', 'day', 'hour']])
 st.write("PM10:", max_pm10[['year', 'month', 'day', 'hour']])
