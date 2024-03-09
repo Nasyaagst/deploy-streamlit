@@ -15,8 +15,11 @@ max_no2 = df[df['NO2'] == df['NO2'].max()]
 max_co = df[df['CO'] == df['CO'].max()]
 max_o3 = df[df['O3'] == df['O3'].max()]
 
+# Print title
+st.title('Simple Dashboard of AQI of Shunyi Area')
+
 # Print date and time when each pollutant reaches its highest value
-st.subheader("HALOO Date and time when each pollutant reaches its highest value:")
+st.subheader("Date and time when each pollutant reaches its highest value:")
 st.write("PM2.5:", max_pm25[['year', 'month', 'day', 'hour']])
 st.write("PM10:", max_pm10[['year', 'month', 'day', 'hour']])
 st.write("SO2:", max_so2[['year', 'month', 'day', 'hour']])
