@@ -18,7 +18,7 @@ if name:
     st.write('Hello,', name + "!")
     st.write("This dashboard contains data ranging from March 1st 2013 until February 28th 2017 24-hours non-stop about Air Quality in Shunyi")
 else:
-    st.write("Please type your name here")
+    st.write("Please type your name first in the box above!")
 
 col1 = st.columns(2)
 
