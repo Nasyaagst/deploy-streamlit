@@ -12,8 +12,13 @@ st.title('Simple Dashboard of AQI of Shunyi Area')
 st.write("This dashboard contains data ranging from March 1st 2013 until February 28th 2017 24-hours non-stop about Air Quality in Shunyi.")
 
 # Add Name Widget
-name = st.text_input(label='Your Name', value='', placeholder='Please type your name here')
-st.write('Hello,', name)
+name = st.text_input(label='Your Name', value='', placeholder='First, please type your name here')
+
+if name:
+    st.write('Hello,', name + "!")
+    st.write("This dashboard contains data ranging from March 1st 2013 until February 28th 2017 24-hours non-stop about Air Quality in Shunyi")
+else:
+    st.write("Please type your name here")
 
 col1 = st.columns(2)
 
@@ -77,7 +82,7 @@ st.write("O3:", min_o3[['year', 'month', 'day', 'hour']])
 pollutant_mean = df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].mean()
 
 # Show bar chart for showing the mean concentrations of pollutants
-st.subheader("Mean Concentrations of Pollutants")
+st.subheader("Mean Concentrations of Each Pollutants")
 plt.figure(figsize=(10, 6))
 ax = pollutant_mean.plot(kind='bar', color='red')
 plt.title("Mean Concentrations of Pollutants", loc="center", fontsize=15)
