@@ -64,7 +64,7 @@ min_co = df[df['CO'] == df['CO'].min()]
 min_o3 = df[df['O3'] == df['O3'].min()]
 
 # Print date and time when each pollutant reaches its lowest value
-st.subheader("Date and time when each pollutant reaches its lowest value:")
+st.subheader("Now, let's turn our attention to when each pollutant reaches its lowest value!")
 st.write("PM2.5:", min_pm25[['year', 'month', 'day', 'hour']])
 st.write("PM10:", min_pm10[['year', 'month', 'day', 'hour']])
 st.write("SO2:", min_so2[['year', 'month', 'day', 'hour']])
