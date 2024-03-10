@@ -85,11 +85,16 @@ st.write(pollutant_median)
 # Bar chart for showing the mean concentrations of pollutants
 st.subheader("Mean Concentrations of Pollutants")
 plt.figure(figsize=(10, 6))
-pollutant_mean.plot(kind='bar', color='red')
+ax = pollutant_mean.plot(kind='bar', color='red')
 plt.title("Mean Concentrations of Pollutants", loc="center", fontsize=15)
 plt.xlabel('Pollutant')
 plt.ylabel('Concentration (µg/m³ or ppm)')
 plt.xticks(rotation=0)
+
+# Adding value labels on top of each bar
+for i, v in enumerate(pollutant_mean):
+    ax.annotate(str(round(v, 2)), xy=(i, v), ha='center', va='bottom')
+
 st.pyplot(plt.gcf())
 
 # Create a heatmap showing the correlation between weather variables and pollutant concentrations
