@@ -11,8 +11,8 @@ df = pd.read_csv("https://raw.githubusercontent.com/Nasyaagst/Submission/main/al
 st.title('Simple Dashboard of AQI (Air Quality Index) of Shunyi Area')
 
 # Add Name Widget
-name = name.upper()
 name = st.text_input(label='Your Name', value='', placeholder='First, please type your name here')
+name = name.upper()
 
 if name:
     st.write('Hello,', name + "!")
