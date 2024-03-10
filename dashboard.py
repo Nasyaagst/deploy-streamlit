@@ -32,7 +32,7 @@ df['AQI'] = df.apply(lambda row: calculate_aqi(row['PM2.5'], row['PM10'], row['S
 day_max_aqi = df.loc[df['AQI'].idxmax()]
 
 # Print the day with the highest AQI
-st.subheader("What day was Shunyi's AQI at its peak?")
+st.subheader("When was Shunyi's AQI at its peak? How high was it?")
 col1, col2 = st.columns(2)
 
 with col1:
