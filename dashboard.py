@@ -76,11 +76,7 @@ st.write("O3:", min_o3[['year', 'month', 'day', 'hour']])
 # Calculate mean and median concentrations of pollutants
 pollutant_mean = df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].mean()
 
-# Print mean and median concentrations of pollutants
-st.subheader("Mean concentrations of pollutants:")
-st.write(pollutant_mean)
-
-# Bar chart for showing the mean concentrations of pollutants
+# Show bar chart for showing the mean concentrations of pollutants
 st.subheader("Mean Concentrations of Pollutants")
 plt.figure(figsize=(10, 6))
 ax = pollutant_mean.plot(kind='bar', color='red')
