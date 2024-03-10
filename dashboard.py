@@ -15,7 +15,7 @@ name = st.text_input(label='Your Name', value='', placeholder='First, please typ
 name = name.capitalize()
 
 if name:
-    st.write('**Hello,**', '**name**' + "!")
+    st.write('**Hello,**', **name** + "!")
     st.write("AQI, standing for Air Quality Index, serves as a vital tool to assess the air we breathe. By analyzing various pollutants such as particulate matter (PM2.5 and PM10), ozone (O3), sulfur dioxide (SO2), nitrogen dioxide (NO2), and carbon monoxide (CO), it provides insights into potential health risks associated with air pollution, guiding individuals to take necessary precautions.")
     st.write("Shunyi, a district located in the northeastern part of Beijing, China, boasts a suburban environment characterized by its tranquil surroundings and lush greenery. However, being part of the Beijing Municipality, Shunyi is also affected by air pollution, which can vary depending on factors such as weather conditions, industrial activity, and vehicular emissions.")
     st.write("This dashboard provides data ranging from **March 1st 2013 until February 28th 2017** 24 hours non-stop about Air Quality in Shunyi, allowing residents and visitors to monitor air quality levels closely. By staying informed about AQI readings, you can take appropriate measures to protect your health, such as avoiding outdoor activities during periods of high pollution and using air purifiers indoors.")
