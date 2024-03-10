@@ -12,7 +12,7 @@ st.title('Simple Dashboard of AQI (Air Quality Index) of Shunyi Area')
 
 # Add Name Widget
 name = st.text_input(label='Your Name', value='', placeholder='First, please type your name here')
-name = name.upper()
+name = name.capitalize()
 
 if name:
     st.write('Hello,', name + "!")
