@@ -46,7 +46,7 @@ max_co = df[df['CO'] == df['CO'].max()]
 max_o3 = df[df['O3'] == df['O3'].max()]
 
 # Print date and time when each pollutant reaches its highest value
-st.subheader("Date and time when each pollutant reaches its highest value:")
+st.subheader("Seeking more details? Here is the list on the exact date and time for each pollutant's reaches its highest value!")
 
 st.write("PM2.5:", max_pm25[['year', 'month', 'day', 'hour']])
 st.write("PM10:", max_pm10[['year', 'month', 'day', 'hour']])
