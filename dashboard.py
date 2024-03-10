@@ -46,6 +46,7 @@ max_co = df[df['CO'] == df['CO'].max()]
 max_o3 = df[df['O3'] == df['O3'].max()]
 
 # Print date and time when each pollutant reaches its highest value
+st.write("")
 st.subheader("Seeking more details? Here is the list on the exact date and time for each pollutant's reaches its highest value!")
 
 st.write("PM2.5:", max_pm25[['year', 'month', 'day', 'hour']])
@@ -71,16 +72,6 @@ st.write("SO2:", min_so2[['year', 'month', 'day', 'hour']])
 st.write("NO2:", min_no2[['year', 'month', 'day', 'hour']])
 st.write("CO:", min_co[['year', 'month', 'day', 'hour']])
 st.write("O3:", min_o3[['year', 'month', 'day', 'hour']])
-
-# Calculate mean and median concentrations of pollutants
-pollutant_mean = df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].mean()
-pollutant_median = df[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].median()
-
-# Print mean and median concentrations of pollutants
-st.subheader("Mean concentrations of pollutants:")
-st.write(pollutant_mean)
-st.subheader("Median concentrations of pollutants:")
-st.write(pollutant_median)
 
 # Bar chart for showing the mean concentrations of pollutants
 st.subheader("Mean Concentrations of Pollutants")
